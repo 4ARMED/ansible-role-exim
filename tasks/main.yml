@@ -11,21 +11,13 @@
   when: ansible_os_family == 'Debian'
 
 - name: Configure exim (Debian only).
-  lineinfile:
-    dest: "{{ exim_configuration_file }}"
-    regexp: "{{ item.regexp }}"
-    line: "{{ item.line }}"
-    state: present
-  with_items:
-    - { regexp: '^dc_eximconfig_configtype', line: "dc_eximconfig_configtype='{{ exim_dc_eximconfig_configtype }}'" }
-    - { regexp: '^dc_localdelivery', line: "dc_localdelivery='{{ exim_dc_localdelivery }}'" }
-    - { regexp: '^dc_smarthost', line: "dc_smarthost='{{ exim_dc_smarthost }}'" }
+  template: src=update-exim4.conf.conf.j2 dest=/etc/exim4/udpate-exim4.conf.conf owner=root group=root mode=0644
   notify: restart exim
   when: ansible_os_family == 'Debian'
 
 - name: Create Exim authentication file (Debian only)
   copy:
-    content: "{{ exim_password_entry }}"
+    content: "{{ exim_password_entry }}\n"
     dest: "/etc/exim4/passwd.client"
     mode: 0640
     owner: root

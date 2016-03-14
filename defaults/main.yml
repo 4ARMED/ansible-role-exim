@@ -2,13 +2,16 @@
 # Main configuration type. Should be 'internet' for public mail sending, or
 # 'local' if mail should only be delivered locally. See Exim documentation for
 # other options.
-exim_dc_eximconfig_configtype: internet
+exim_dc_eximconfig_configtype: satellite
 
-# Other exim directives.
-exim_dc_localdelivery: mail_spool
+# You will need to set this if you use a smarthost.
+exim_dc_readhost: 
 
 # For smarthost configuration use 'satellite' for the configtype above then uncomment and specify the smart host here.
-exim_dc_smarthost: smtp.mandrillapp.com
+exim_dc_smarthost: smtp.mandrillapp.com:587
+
+# For smarthost, hide the local mailname otherwise mail won't be delivered (in all likelihood)
+exim_dc_hide_mailname: true
 
 # Default value to add to the Exim passwd.client file. Override this somewhere with a vault file.
 exim_password_entry: '### target.mail.server.example:login:password'
