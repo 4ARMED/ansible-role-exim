@@ -19,6 +19,7 @@
   with_items:
     - { regexp: '^dc_eximconfig_configtype', line: "dc_eximconfig_configtype='{{ exim_dc_eximconfig_configtype }}'" }
     - { regexp: '^dc_localdelivery', line: "dc_localdelivery='{{ exim_dc_localdelivery }}'" }
+    - { regexp: '^dc_smarthost', line: "dc_smarthost='{{ exim_dc_smarthost }}'" }
   notify: restart exim
   when: ansible_os_family == 'Debian'
 

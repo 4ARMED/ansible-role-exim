@@ -28,7 +28,7 @@ None.
 
     - hosts: servers
       roles:
-        - { role: geerlingguy.exim }
+        - { role: 4armed.exim }
 
 ## License
 
@@ -36,4 +36,4 @@ MIT / BSD
 
 ## Author Information
 
-This role was created in 2015 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
+This role was created in 2015 by [Jeff Geerling](http://jeffgeerling.com/), then forked by 4ARMED in 2016 to add extra configuration.

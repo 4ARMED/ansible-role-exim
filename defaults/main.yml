@@ -6,3 +6,6 @@ exim_dc_eximconfig_configtype: internet
 
 # Other exim directives.
 exim_dc_localdelivery: mail_spool
+
+# For smarthost configuration use 'satellite' for the configtype above then uncomment and specify the smart host here.
+# exim_dc_smarthost: smarthost.example.com
