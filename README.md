@@ -20,6 +20,11 @@ Available variables are listed below, along with default values (see `defaults/m
 
 (Debian/Ubuntu only) Default transport for local mail delivery. Defaults to `mail_spool` if unset.
 
+    exim_dc_smarthost: smtp.mandrillapp.com
+
+(Debian/Ubuntu only) Default smarthost for mail delivery. Defaults to `smtp.mandrillapp.com` if unset but only used if configtype is `satellite`.
+
+
 ## Dependencies
 
 None.
