@@ -10,15 +10,6 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- name: Create Exim authentication file 
-  copy:
-    content: "{{ exim_password_entry }}"
-    dest: "/etc/exim/passwd.client"
-    mode: 0640
-    owner: root
-    group: Debian-exim
-  when: ( ansible_os_family == 'Debian' and exim_password_entry )
-
 - name: Configure exim (Debian only).
   lineinfile:
     dest: "{{ exim_configuration_file }}"
@@ -31,6 +22,15 @@
     - { regexp: '^dc_smarthost', line: "dc_smarthost='{{ exim_dc_smarthost }}'" }
   notify: restart exim
   when: ansible_os_family == 'Debian'
+
+- name: Create Exim authentication file (Debian only)
+  copy:
+    content: "{{ exim_password_entry }}"
+    dest: "/etc/exim4/passwd.client"
+    mode: 0640
+    owner: root
+    group: Debian-exim
+  when: ( ansible_os_family == 'Debian' and exim_password_entry )
 
 - name: Ensure exim is running.
   service: "name={{ exim_daemon }} state=started enabled=yes"
