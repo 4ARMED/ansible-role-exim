@@ -2,9 +2,9 @@
 dependencies: []
 
 galaxy_info:
-  author: geerlingguy
+  author: 4ARMED
   description: Exim installation for Linux.
-  company: "Midwestern Mac, LLC"
+  company: "4ARMED Limited"
   license: "license (BSD, MIT)"
   min_ansible_version: 1.4
   platforms:
