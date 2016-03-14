@@ -11,7 +11,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: Configure exim (Debian only).
-  template: src=update-exim4.conf.conf.j2 dest=/etc/exim4/udpate-exim4.conf.conf owner=root group=root mode=0644
+  template: src=update-exim4.conf.conf.j2 dest={{ exim_configuration_file }} owner=root group=root mode=0644
   notify: restart exim
   when: ansible_os_family == 'Debian'
 
