@@ -1,6 +1,6 @@
 # Ansible Role: Exim
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-exim.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-exim)
+[![Build Status](https://travis-ci.org/4ARMED/ansible-role-exim.svg?branch=master)](https://travis-ci.org/4ARMED/ansible-role-exim)
 
 Installs Exim (a Mail Transfer Agent) on RedHat/CentOS or Debian/Ubuntu.
 
@@ -23,6 +23,10 @@ Available variables are listed below, along with default values (see `defaults/m
     exim_dc_smarthost: smtp.mandrillapp.com
 
 (Debian/Ubuntu only) Default smarthost for mail delivery. Defaults to `smtp.mandrillapp.com` if unset but only used if configtype is `satellite`.
+
+	exim_password_entry
+
+(Debian/Ubuntu only) Add an entry to the Exim passwd.client file if your remote smarthost needs auth. Recommend this is added to defaults/vault.yml.
 
 
 ## Dependencies
